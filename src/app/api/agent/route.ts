@@ -28,6 +28,7 @@ export async function POST(req: Request) {
   // 2) If GPT decides to call a tool
   if (msg.tool_calls?.length) {
     const results = await Promise.all(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       msg.tool_calls.map(async (call: any) => {
         const args = JSON.parse(call.function.arguments || "{}");
         const result = await runTool(call.function.name, args);
@@ -59,6 +60,7 @@ export async function POST(req: Request) {
     // Placeholder response until the agent logic is implemented
     return NextResponse.json({ answer: "Agent not implemented yet" });
   } catch (err: any) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     console.error("API error:", err);
     return NextResponse.json(
       { error: err.message || "Server error" },
