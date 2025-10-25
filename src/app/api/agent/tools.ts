@@ -58,7 +58,7 @@ export async function runTool(name: string, args: any) {
   if (name === "calculator") {
     try {
       // ⚠️ demo only — eval is unsafe in production
-      // eslint-disable-next-line no-eval
+      
       return eval(args.expression);
     } catch {
       return "Error evaluating expression";
