@@ -59,8 +59,9 @@ export async function POST(req: Request) {
 
     // Placeholder response until the agent logic is implemented
     return NextResponse.json({ answer: "Agent not implemented yet" });
-  } catch (err: any) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (err: any) {
+    
     console.error("API error:", err);
     return NextResponse.json(
       { error: err.message || "Server error" },
