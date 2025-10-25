@@ -53,6 +53,7 @@ export const tools: ChatCompletionTool[] = [
 ];
 
 // Tool implementations (to be added later)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function runTool(name: string, args: any) {
   if (name === "calculator") {
     try {
